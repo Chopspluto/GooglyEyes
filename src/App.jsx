@@ -1,22 +1,16 @@
-import Eye from './components/Eye';
 import Footer from './components/Footer';
-import Vines from './components/Vines';
+import Project from './pages/Project';
+import Home from './pages/Home';
+import Cursor from './components/Cursor';
 
 function App() {
-  
 
   return (
     <>
-    <Vines/>
-    <div className='row'>
-      <Eye/>
-      <Eye/>
-      <div>
-        <h1>Kanishka Jayani</h1>
-        <h3>Portfolio</h3>
-      </div>
-    </div>
-    <Footer/>
+    <Cursor/>
+      <Home/>
+      <Project/>
+      <Footer/>
     </>
   )
 }

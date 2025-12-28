@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
 
 export default function Eye(){
     
     const eyeRef = useRef(null);
     const pupilRef = useRef(null);
+    const eyelidRef = useRef(null);
     const MAX_MOVE = 30
     const BLINK_INTERVAL = 5000
     const MOUSE_IDLE_DELAY = 300 // ms
 
-    const [isBlinking, setIsBlinking] = useState(false);
+    // const [isBlinking, setIsBlinking] = useState(false);
     const mouseTimeOutRef = useRef(null)
     const isMouseMovingRef = useRef(false)
 
@@ -37,7 +39,10 @@ export default function Eye(){
             const x = Math.cos(angle) * MAX_MOVE;
             const y = Math.sin(angle) * MAX_MOVE;
 
-            pupil.style.transform = `translate(${x}px, ${y}px)`
+            // pupil.style.transform = `translate(${x}px, ${y}px)`
+            gsap.to(pupil, {
+                x,y, duration:0.2, ease:"power3.out"
+            })
         }
         window.addEventListener("mousemove", handleMouseMove)
         return () => {
@@ -46,20 +51,30 @@ export default function Eye(){
         }
     }, [])
 
-    useEffect(() => {
-    const blinkInterval = setInterval(() => {
-      if (isMouseMovingRef.current) return
+//     useEffect(() => {
+//         const blink = gsap.timeline({ paused: true });
 
-      setIsBlinking(true)
-      setTimeout(() => setIsBlinking(false), 150)
-    }, BLINK_INTERVAL)
+//         blink.to(eyelidRef.current, {
+//             scaleY:1,
+//             duration:0.1,
+//             ease:"power1.in"
+//         })
+//         .to(eyelidRef.current, {
+//             scaleY: 0,
+//             duration:0.1,
+//             ease:"power1.out"
+//         })
+//         const blinkInterval = setInterval(() => {
+//             blink.restart();
+//         }, BLINK_INTERVAL)
 
-    return () => clearInterval(blinkInterval)
-  }, [])
+//         return () => clearInterval(blinkInterval)
+//   }, [])
 
     return(
         <>
-        <div className={`eye ${isBlinking ? "blink" : ""}`} ref={eyeRef}>
+        <div className="eye" ref={eyeRef}>
+            <div className="eyelid" ref={eyelidRef} />
             <div className="pupil" ref={pupilRef} />
         </div>
         </>
