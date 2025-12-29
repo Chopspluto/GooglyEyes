@@ -51,26 +51,6 @@ export default function Eye(){
         }
     }, [])
 
-//     useEffect(() => {
-//         const blink = gsap.timeline({ paused: true });
-
-//         blink.to(eyelidRef.current, {
-//             scaleY:1,
-//             duration:0.1,
-//             ease:"power1.in"
-//         })
-//         .to(eyelidRef.current, {
-//             scaleY: 0,
-//             duration:0.1,
-//             ease:"power1.out"
-//         })
-//         const blinkInterval = setInterval(() => {
-//             blink.restart();
-//         }, BLINK_INTERVAL)
-
-//         return () => clearInterval(blinkInterval)
-//   }, [])
-
     return(
         <>
         <div className="eye" ref={eyeRef}>

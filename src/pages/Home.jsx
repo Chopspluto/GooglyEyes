@@ -1,20 +1,71 @@
-import Eye from "../components/Eye"
+import { useRef } from "react"
+import Eye from "../components/Eye";
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { CiInstagram } from "react-icons/ci";
+import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa6";
 
 function Home() {
+
+  const starRef = useRef();
+
+  useGSAP(() => {
+
+    const stars = gsap.utils.toArray('.star');
+
+    stars.forEach((star) => {
+      gsap.fromTo(star, {
+      opacity: 0,
+      scale: 0,
+    },
+    {
+      opacity: 1,
+      scale: 1,
+      duration: () => Math.random() * 1 + 0.5,
+      delay: () => Math.random() * 1,
+      repeat: -1,
+      yoyo: true,
+      ease: 'power1.inOut',
+      stagger: {
+        amount: 1.5,
+        from: "random"
+      }
+    })
+  })
+  });
+
   return (
-    <div className="section">
-        <div className='row'>
-          <Eye/>
-          <Eye/>
-        </div>
+    <main className="main">
+      <div class="stars" ref={starRef}>
+        <span class="star">✴︎</span>
+        <span class="star">✴︎</span>
+        <span class="star">✴︎</span>
+        <span class="star">✴︎</span>
+        <span class="star">✴︎</span>
+        <span class="star">✴︎</span>
+      </div>
+      <div className='hero'>
+        <Eye/>
+        <Eye/>
+      </div>
+      <div className="hero-text">
         <h1>Portfolio</h1>
-        <div className="sign">
-          <h2>K</h2><span>anishka</span><h2>J</h2><span>ayani</span>
+      </div>
+      <div className="sign">
+        <h2>K</h2><span>anishka</span><h2>J</h2><span>ayani</span>
+      </div>
+      <div className="extras-l">
+        <hr/><span>Updated 2025</span><hr/>
+      </div>
+      <div className="extras-r">
+        <hr/><span>Web design & Development</span><hr/>
+      </div>
+        <div className="socials">
+            <i><FaInstagram /></i>
+            <i><FaLinkedin /></i>
+            <i><FaGithub /></i>
         </div>
-        <div class="extras">
-          <span>------------ Updated 2025 ------------</span>
-        </div>
-    </div>
+    </main>
   )
 }
 

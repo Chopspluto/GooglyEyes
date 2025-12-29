@@ -8,9 +8,9 @@ function App() {
   return (
     <>
     <Cursor/>
-      <Home/>
-      <Project/>
-      <Footer/>
+    <Home/>
+    <Project/>
+    <Footer/>
     </>
   )
 }

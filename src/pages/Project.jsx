@@ -36,7 +36,7 @@ export default function Project(){
                 <div className="projects">
                 {[1, 2, 3].map((i) => (
                     <div key={i} className="project">
-                    <h3>Title {i}</h3>
+                    <h3 className='title'>Title {i}</h3>
                     <div className="text">Content for accordion {i}</div>
                     </div>
                 ))}
