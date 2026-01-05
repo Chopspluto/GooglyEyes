@@ -2,26 +2,24 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 export default function Eye(){
-    
+
     const eyeRef = useRef(null);
     const pupilRef = useRef(null);
     const eyelidRef = useRef(null);
     const MAX_MOVE = 30
-    const BLINK_INTERVAL = 5000
-    const MOUSE_IDLE_DELAY = 300 // ms
-
-    // const [isBlinking, setIsBlinking] = useState(false);
+    const MOUSE_IDLE_DELAY = 1000 // ms
     const mouseTimeOutRef = useRef(null)
     const isMouseMovingRef = useRef(false)
 
     useEffect(() =>{
         const handleMouseMove = (e) => {
+
             isMouseMovingRef.current = true;
 
             clearTimeout(mouseTimeOutRef.current)
             mouseTimeOutRef.current = setTimeout(() => {
-                isMouseMovingRef.current = false
-            }, MOUSE_IDLE_DELAY)
+                isMouseMovingRef.current = false;
+            }, MOUSE_IDLE_DELAY);
 
             const eye = eyeRef.current;
             const pupil = pupilRef.current;
@@ -49,7 +47,7 @@ export default function Eye(){
             window.removeEventListener("mousemove", handleMouseMove)
             clearTimeout(mouseTimeOutRef.current)
         }
-    }, [])
+    }, []);
 
     return(
         <>
