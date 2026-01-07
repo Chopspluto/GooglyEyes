@@ -11,12 +11,14 @@
 html,
 :root {
   cursor: none !important;
+  color-scheme: light;
 }
 
 body {
   width: 100%;
   height: auto;
-  background: linear-gradient(140deg, #d2b0ff, #8e62c4);
+  background: linear-gradient(140deg, rgb(210, 176, 255),
+      rgb(142, 98, 196));
   font-family: "Noto Sans SC", sans-serif;
   pointer-events: none;
 }
@@ -110,7 +112,7 @@ h1 {
   font-weight: 800;
   font-style: normal;
   font-size: clamp(4rem, 20vw, 17rem);
-  color: #fff;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 /* h2 {
@@ -133,7 +135,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .socials i {
@@ -149,7 +151,7 @@ h1 {
   justify-content: center;
   align-items: center;
   position: absolute;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .extras-l {
@@ -180,7 +182,7 @@ h1 {
   margin: 20px 5px;
   width: clamp(80px, 20vw, 180px);
   height: clamp(85px, 22vw, 190px);
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 50%;
   display: flex;
   position: relative;
@@ -196,8 +198,7 @@ h1 {
   left: 0;
   width: 100%;
   height: 0%;
-  /* Start open */
-  background: #fff;
+  background: rgba(255, 255, 255, 0.95);
   z-index: 2;
   border-bottom: 1px solid #ccc;
 }
@@ -247,7 +248,7 @@ h1 {
   font-size: max(2vw, 24px);
   line-height: 1.1;
   padding-bottom: 1rem;
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .text {
@@ -255,7 +256,7 @@ h1 {
   line-height: 1.4;
   overflow: hidden;
   padding-bottom: 20px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .projects {
@@ -277,7 +278,7 @@ h1 {
 }
 
 .stars {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.95);
   position: absolute;
   font-size: 2rem;
 }
@@ -327,5 +328,16 @@ h1 {
   .extras-l,
   .extras-r {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+
+  h1,
+  h2,
+  .sign {
+    text-shadow:
+      0 0 3px #fff,
+      0 0 8px rgba(210, 176, 255, 0.8);
   }
 }
