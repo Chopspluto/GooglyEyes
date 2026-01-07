@@ -65,7 +65,7 @@ function Home() {
           <h1>portfolio</h1>
         </div>
         <div className="sign">
-          <h2>K</h2><span>anishka</span><h2>J</h2><span>ayani</span>
+          <h2>K</h2><span>anishka</span>&nbsp;<h2>J</h2><span>ayani</span>
         </div>
         <div className="extras-l">
           <hr/><span>Updated 2025</span><hr/>

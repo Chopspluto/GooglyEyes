@@ -6,6 +6,10 @@ import {projectInfo} from "../constants/project.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
+ScrollTrigger.config({
+  ignoreMobileResize: true
+});
+
 export default function Project(){
 
     const container = useRef();
@@ -57,7 +61,7 @@ export default function Project(){
     }, {scope: container})
     return(
             <main className="main" ref={container}>
-                <div className='project-container'>
+                {/* <div className='project-container'> */}
                     <div className="projects" ref={projectsRef}>
                     {projectInfo.map((p) => (
                         <div key={p.id} className="project" ref={projectRef}>
@@ -69,7 +73,7 @@ export default function Project(){
                         </div>
                     ))}
                     </div>
-                </div>
+                {/* </div> */}
                 <div className="extras-l">
                     <hr/><span>✴︎</span><hr/>
                 </div>
